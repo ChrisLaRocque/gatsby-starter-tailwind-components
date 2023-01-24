@@ -2378,7 +2378,9 @@ type HeroImageFragment = { readonly gatsbyImageData: import('gatsby-plugin-image
 type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomepageQuery = { readonly heroImage: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
+type HomepageQuery = { readonly heroImage: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly splitImages: { readonly nodes: ReadonlyArray<{ readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null }> } };
+
+type SplitImageFragment = { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData };
 
 
 }

@@ -2,17 +2,27 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Button from "./Button";
-export default function Hero({ image }) {
+type HeroProps = {
+  h1: string;
+  h2: string;
+  image: Queries.HeroImageFragment;
+  p: string;
+};
+export default function Hero({ h1, h2, p, image }: HeroProps) {
   return (
-    <section className="relative flex justify-center overflow-hidden">
+    <section className="relative overflow-hidden">
       <GatsbyImage
-        image={image.childImageSharp.gatsbyImageData}
+        image={image.gatsbyImageData}
         alt="Abstract moon and clouds"
         className="absolute -z-10 h-full w-full"
       />
-      <div id="hero-text" className="my-36 min-w-[50%] text-white">
-        <h1 className="text-xl font-bold">Hero</h1>
-        <p className="mb-4">I&apos;m a paragraph under this lil h1 guy</p>
+      <div
+        id="hero-text"
+        className="my-36 mx-auto min-w-[50%] max-w-xl p-2 text-white"
+      >
+        <h2 className="mb-2 text-xs uppercase">{h2}</h2>
+        <h1 className="mb-2 text-xl font-bold">{h1}</h1>
+        <p className="mb-4 max-w-[49ch]">{p}</p>
         <Button />
       </div>
     </section>

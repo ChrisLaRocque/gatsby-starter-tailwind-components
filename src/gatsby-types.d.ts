@@ -2373,10 +2373,12 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type HomepageImageQueryVariables = Exact<{ [key: string]: never; }>;
+type HeroImageFragment = { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData };
+
+type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomepageImageQuery = { readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
+type HomepageQuery = { readonly heroImage: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 
 }

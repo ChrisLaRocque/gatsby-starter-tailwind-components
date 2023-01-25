@@ -1,16 +1,24 @@
 import React from "react";
-import { Link } from "gatsby";
-type NavItem = {
-  to: string;
-  text: string;
-};
+import { Link, useStaticQuery, graphql } from "gatsby";
+// type NavItem = {
+//   to: string;
+//   text: string;
+// };
 type NavProps = {
   title: string;
-  items?: NavItem[];
 };
 
-export default function Nav(props: NavProps) {
-  const { title, items } = props;
+export default function Nav({ title }: NavProps) {
+  const items = useStaticQuery(graphql`
+    query NavItems {
+      allNavItemsJson {
+        nodes {
+          text
+          to
+        }
+      }
+    }
+  `).allNavItemsJson.nodes;
   return (
     <nav className="flex items-center justify-between p-2 text-right lg:text-left">
       <strong className="text-xl font-bold">{title}</strong>

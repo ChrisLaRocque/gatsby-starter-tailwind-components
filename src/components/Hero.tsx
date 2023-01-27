@@ -18,7 +18,8 @@ export default function Hero({ h1, h2, p, image }: HeroProps) {
       <GatsbyImage
         image={image.gatsbyImageData}
         alt="Abstract moon and clouds"
-        className="absolute -z-20 h-full w-full"
+        className="absolute -z-20 h-full w-full" // the gatsby-image-wrapper class messes 'absolute' up, hence the line below
+        style={{ position: "absolute" }}
       />
       <div
         id="hero-text"

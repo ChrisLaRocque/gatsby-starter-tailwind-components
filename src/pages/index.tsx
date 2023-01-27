@@ -1,10 +1,13 @@
 import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 import Hero from "../components/Hero";
 import Split from "../components/Split";
+import type { HeadProps } from "gatsby";
 
-export default function IndexPage({ data }: Queries.HomepageQuery) {
+export default function IndexPage(props: PageProps) {
+  const { data } = props;
   const { heroImage, splitImages } = data;
 
   return (
@@ -36,3 +39,15 @@ export const query = graphql`
     }
   }
 `;
+export function Head(props: HeadProps) {
+  const { location, data } = props;
+  const { heroImage } = data;
+  return (
+    <SEO
+      title="Tailwind Gatsby component starter"
+      description="A Gatsby starter with Tailwind installed and a basic set of React components for building a website quickly."
+      pathname={location.pathname}
+      imageURL={heroImage.childImageSharp.gatsbyImageData.images.fallback.src}
+    />
+  );
+}

@@ -2543,6 +2543,11 @@ type NavItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 type NavItemsQuery = { readonly allNavItemsJson: { readonly nodes: ReadonlyArray<{ readonly text: string | null, readonly to: string | null }> } };
 
+type SEOFallbackQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SEOFallbackQuery = { readonly site: { readonly siteMetadata: { readonly siteUrl: string | null, readonly title: string | null, readonly description: string | null } | null } | null };
+
 type SplitImageFragment = { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData };
 
 

@@ -11,6 +11,7 @@ type HeroProps = {
 };
 
 export default function Hero({ h1, h2, p, image }: HeroProps) {
+  console.log("image", image);
   return (
     <section className="relative overflow-hidden">
       <div className=" absolute -z-10 h-full w-full bg-black opacity-60 backdrop-blur-3xl"></div>

@@ -1,7 +1,10 @@
-module.exports = {
+import type { GatsbyConfig } from "gatsby";
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `Gatsby starter Tailwind components`,
     siteUrl: `https://www.yourdomain.tld`,
+    description: `A Gatsby starter with Tailwind installed and a basic set of React components for building a website quickly.`,
   },
   graphqlTypegen: true,
   plugins: [
@@ -46,3 +49,4 @@ module.exports = {
     },
   ],
 };
+export default config;

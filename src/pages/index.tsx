@@ -1,15 +1,14 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
+import Layout from "../components/Layout";
 import Hero from "../components/Hero";
-import Nav from "../components/Nav";
 import Split from "../components/Split";
 
 export default function IndexPage({ data }: Queries.HomepageQuery) {
   const { heroImage, splitImages } = data;
 
   return (
-    <>
-      <Nav title="Tailwind" />
+    <Layout title="Tailwind">
       <Hero
         image={heroImage.childImageSharp}
         h1="Tailwind components"
@@ -18,7 +17,7 @@ export default function IndexPage({ data }: Queries.HomepageQuery) {
       />
       <Split image={splitImages.nodes[0].childImageSharp} />
       <Split image={splitImages.nodes[1].childImageSharp} />
-    </>
+    </Layout>
   );
 }
 export const query = graphql`

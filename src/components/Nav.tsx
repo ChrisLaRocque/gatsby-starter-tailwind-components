@@ -22,7 +22,7 @@ export default function Nav({ title }: NavProps) {
   return (
     <nav className="flex items-center justify-between p-2 text-right lg:text-left">
       <strong className="text-xl font-bold">{title}</strong>
-      <div className="nav-links">
+      <div className="nav-links relative">
         <input
           className="checkbox peer hidden w-9 opacity-0"
           type="checkbox"
@@ -38,10 +38,13 @@ export default function Nav({ title }: NavProps) {
           <span className="block h-1 w-full bg-black"></span>
         </label>
 
-        <ul className="absolute right-0 top-16 hidden w-full peer-checked:block lg:relative lg:inset-0 lg:flex">
+        <ul className="absolute top-[100%] right-0 hidden bg-white peer-checked:block lg:relative lg:inset-0 lg:flex">
           {items &&
             items.map((item) => (
-              <li key={item.text} className="p-2 lg:px-2">
+              <li
+                key={item.text}
+                className="relative block whitespace-nowrap p-4 lg:px-2"
+              >
                 <Link to={item.to}>{item.text}</Link>
               </li>
             ))}

@@ -20,7 +20,7 @@ export default function Nav({ title }: NavProps) {
     }
   `).allNavItemsJson.nodes;
   return (
-    <nav className="flex items-center justify-between p-2 text-right lg:text-left">
+    <nav className="flex items-center justify-between p-2 lg:text-left">
       <strong className="text-xl font-bold">{title}</strong>
       <div className="nav-links relative">
         <input
@@ -38,7 +38,7 @@ export default function Nav({ title }: NavProps) {
           <span className="block h-1 w-full bg-black"></span>
         </label>
 
-        <ul className="absolute top-[100%] right-0 hidden bg-white peer-checked:block lg:relative lg:inset-0 lg:flex">
+        <ul className="absolute top-[128%] right-[-26%] hidden bg-white peer-checked:block lg:relative lg:inset-0 lg:flex">
           {items &&
             items.map((item) => (
               <li

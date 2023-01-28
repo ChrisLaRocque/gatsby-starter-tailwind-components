@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import Button from "./Button";
 // type NavItem = {
 //   to: string;
 //   text: string;
@@ -48,6 +49,9 @@ export default function Nav({ title }: NavProps) {
                 <Link to={item.to}>{item.text}</Link>
               </li>
             ))}
+          <li className="relative block whitespace-nowrap p-4 lg:px-2">
+            <Button to="" text="CTA"></Button>
+          </li>
         </ul>
       </div>
     </nav>

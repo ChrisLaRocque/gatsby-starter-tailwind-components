@@ -11,10 +11,9 @@ type HeroProps = {
 };
 
 export default function Hero({ h1, h2, p, image }: HeroProps) {
-  console.log("image", image);
   return (
     <section className="relative overflow-hidden">
-      <div className=" absolute -z-10 h-full w-full bg-black opacity-60 backdrop-blur-3xl"></div>
+      <div className="absolute -z-10 h-full w-full bg-black opacity-60 backdrop-blur-3xl"></div>
       <GatsbyImage
         image={image.gatsbyImageData}
         alt="Abstract moon and clouds"
@@ -23,11 +22,13 @@ export default function Hero({ h1, h2, p, image }: HeroProps) {
       />
       <div
         id="hero-text"
-        className="my-36 mx-auto min-w-[50%] max-w-xl p-2 text-white"
+        className="my-36 mx-auto min-w-[50%] max-w-7xl p-4 text-white lg:p-2"
       >
-        <h2 className="mb-2 text-xs uppercase">{h2}</h2>
-        <h1 className="mb-2 text-xl font-bold">{h1}</h1>
-        <p className="mb-4 max-w-[49ch]">{p}</p>
+        <h2 className="text-md mb-2 leading-7">{h2}</h2>
+        <h1 className="mb-2 text-4xl font-extrabold tracking-tight lg:text-6xl">
+          {h1}
+        </h1>
+        <p className="mb-10 max-w-lg text-lg">{p}</p>
         <Button to="/" text="Button" />
       </div>
     </section>

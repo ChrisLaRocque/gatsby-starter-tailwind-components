@@ -4,15 +4,23 @@ import { GatsbyImage } from "gatsby-plugin-image";
 type SplitProps = {
   h3?: string;
   image: Queries.SplitImageFragment;
+  largeP?: string;
 };
-export default function Split({ image, h3 = "Split header" }: SplitProps) {
+export default function Split({
+  image,
+  h3 = "H3 for component",
+  largeP = "Longish <p> that is more verbose than the lil eyebrow h3 above",
+}: SplitProps) {
   return (
     <section className="group py-6 lg:py-12">
-      <div className="mx-auto block group-odd:flex-row-reverse group-even:flex-row lg:flex lg:max-w-[75vw]">
+      <div className="mx-auto block group-odd:flex-row-reverse group-even:flex-row lg:flex lg:min-w-[50%] lg:max-w-7xl">
         <GatsbyImage image={image.gatsbyImageData} alt="" />
-        <div className="text-wrapper p-4">
-          <h3 className="font-bold">{h3}</h3>
-          <p className="max-w-[91ch]">
+        <div className="text-wrapper p-4 lg:max-w-[50%]">
+          <h3 className="text-xl font-semibold leading-7">{h3}</h3>
+          <p className="mt-4 text-4xl font-extrabold tracking-tight">
+            {largeP}
+          </p>
+          <p className="mt-4 max-w-xl text-base">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
             itaque optio laborum earum unde provident, quod laudantium
             veritatis, possimus ratione repudiandae quae aut sint eius sequi
@@ -25,6 +33,6 @@ export default function Split({ image, h3 = "Split header" }: SplitProps) {
 }
 export const query = graphql`
   fragment SplitImage on ImageSharp {
-    gatsbyImageData(width: 1200)
+    gatsbyImageData(width: 900)
   }
 `;

@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import Nav from "./Nav";
-
 type LayoutProps = {
   title: string;
   children: ReactNode;

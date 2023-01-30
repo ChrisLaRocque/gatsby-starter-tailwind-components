@@ -382,11 +382,15 @@ type File = Node & {
   readonly childImageSharp: Maybe<ImageSharp>;
   /** Returns the first child node of type NavItemsJson or null if there are no children of given type on this node */
   readonly childNavItemsJson: Maybe<NavItemsJson>;
+  /** Returns the first child node of type TabsJson or null if there are no children of given type on this node */
+  readonly childTabsJson: Maybe<TabsJson>;
   readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type ImageSharp */
   readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
   /** Returns all children nodes filtered by type NavItemsJson */
   readonly childrenNavItemsJson: Maybe<ReadonlyArray<Maybe<NavItemsJson>>>;
+  /** Returns all children nodes filtered by type TabsJson */
+  readonly childrenTabsJson: Maybe<ReadonlyArray<Maybe<TabsJson>>>;
   readonly ctime: Scalars['Date'];
   readonly ctimeMs: Scalars['Float'];
   readonly dev: Scalars['Int'];
@@ -531,9 +535,11 @@ type FileFieldSelector = {
   readonly changeTime: InputMaybe<FieldSelectorEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpFieldSelector>;
   readonly childNavItemsJson: InputMaybe<NavItemsJsonFieldSelector>;
+  readonly childTabsJson: InputMaybe<TabsJsonFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFieldSelector>;
   readonly childrenNavItemsJson: InputMaybe<NavItemsJsonFieldSelector>;
+  readonly childrenTabsJson: InputMaybe<TabsJsonFieldSelector>;
   readonly ctime: InputMaybe<FieldSelectorEnum>;
   readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
   readonly dev: InputMaybe<FieldSelectorEnum>;
@@ -576,9 +582,11 @@ type FileFilterInput = {
   readonly changeTime: InputMaybe<DateQueryOperatorInput>;
   readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
   readonly childNavItemsJson: InputMaybe<NavItemsJsonFilterInput>;
+  readonly childTabsJson: InputMaybe<TabsJsonFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
   readonly childrenNavItemsJson: InputMaybe<NavItemsJsonFilterListInput>;
+  readonly childrenTabsJson: InputMaybe<TabsJsonFilterListInput>;
   readonly ctime: InputMaybe<DateQueryOperatorInput>;
   readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
   readonly dev: InputMaybe<IntQueryOperatorInput>;
@@ -662,9 +670,11 @@ type FileSortInput = {
   readonly changeTime: InputMaybe<SortOrderEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpSortInput>;
   readonly childNavItemsJson: InputMaybe<NavItemsJsonSortInput>;
+  readonly childTabsJson: InputMaybe<TabsJsonSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpSortInput>;
   readonly childrenNavItemsJson: InputMaybe<NavItemsJsonSortInput>;
+  readonly childrenTabsJson: InputMaybe<TabsJsonSortInput>;
   readonly ctime: InputMaybe<SortOrderEnum>;
   readonly ctimeMs: InputMaybe<SortOrderEnum>;
   readonly dev: InputMaybe<SortOrderEnum>;
@@ -1252,6 +1262,7 @@ type NavItemsJson = Node & {
   readonly parent: Maybe<Node>;
   readonly text: Maybe<Scalars['String']>;
   readonly to: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 type NavItemsJsonConnection = {
@@ -1306,6 +1317,7 @@ type NavItemsJsonFieldSelector = {
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly text: InputMaybe<FieldSelectorEnum>;
   readonly to: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
 };
 
 type NavItemsJsonFilterInput = {
@@ -1315,6 +1327,7 @@ type NavItemsJsonFilterInput = {
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly text: InputMaybe<StringQueryOperatorInput>;
   readonly to: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 type NavItemsJsonFilterListInput = {
@@ -1369,6 +1382,7 @@ type NavItemsJsonSortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
   readonly text: InputMaybe<SortOrderEnum>;
   readonly to: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
 };
 
 /** Node Interface */
@@ -1449,6 +1463,7 @@ type Query = {
   readonly allSiteFunction: SiteFunctionConnection;
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
+  readonly allTabsJson: TabsJsonConnection;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -1458,6 +1473,7 @@ type Query = {
   readonly siteFunction: Maybe<SiteFunction>;
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
+  readonly tabsJson: Maybe<TabsJson>;
 };
 
 
@@ -1533,6 +1549,14 @@ type Query_allSitePluginArgs = {
 };
 
 
+type Query_allTabsJsonArgs = {
+  filter: InputMaybe<TabsJsonFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<TabsJsonSortInput>>>;
+};
+
+
 type Query_directoryArgs = {
   absolutePath: InputMaybe<StringQueryOperatorInput>;
   accessTime: InputMaybe<DateQueryOperatorInput>;
@@ -1586,9 +1610,11 @@ type Query_fileArgs = {
   changeTime: InputMaybe<DateQueryOperatorInput>;
   childImageSharp: InputMaybe<ImageSharpFilterInput>;
   childNavItemsJson: InputMaybe<NavItemsJsonFilterInput>;
+  childTabsJson: InputMaybe<TabsJsonFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
   childrenNavItemsJson: InputMaybe<NavItemsJsonFilterListInput>;
+  childrenTabsJson: InputMaybe<TabsJsonFilterListInput>;
   ctime: InputMaybe<DateQueryOperatorInput>;
   ctimeMs: InputMaybe<FloatQueryOperatorInput>;
   dev: InputMaybe<IntQueryOperatorInput>;
@@ -1638,6 +1664,7 @@ type Query_navItemsJsonArgs = {
   parent: InputMaybe<NodeFilterInput>;
   text: InputMaybe<StringQueryOperatorInput>;
   to: InputMaybe<StringQueryOperatorInput>;
+  type: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -1711,6 +1738,16 @@ type Query_sitePluginArgs = {
   resolve: InputMaybe<StringQueryOperatorInput>;
   ssrAPIs: InputMaybe<StringQueryOperatorInput>;
   version: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+type Query_tabsJsonArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  label: InputMaybe<TabsJsonLabelFilterInput>;
+  panel: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
 };
 
 type Site = Node & {
@@ -2492,6 +2529,152 @@ type StringQueryOperatorInput = {
   readonly regex: InputMaybe<Scalars['String']>;
 };
 
+type TabsJson = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly label: Maybe<TabsJsonLabel>;
+  readonly panel: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+};
+
+type TabsJsonConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<TabsJsonEdge>;
+  readonly group: ReadonlyArray<TabsJsonGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<TabsJson>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type TabsJsonConnection_distinctArgs = {
+  field: TabsJsonFieldSelector;
+};
+
+
+type TabsJsonConnection_groupArgs = {
+  field: TabsJsonFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type TabsJsonConnection_maxArgs = {
+  field: TabsJsonFieldSelector;
+};
+
+
+type TabsJsonConnection_minArgs = {
+  field: TabsJsonFieldSelector;
+};
+
+
+type TabsJsonConnection_sumArgs = {
+  field: TabsJsonFieldSelector;
+};
+
+type TabsJsonEdge = {
+  readonly next: Maybe<TabsJson>;
+  readonly node: TabsJson;
+  readonly previous: Maybe<TabsJson>;
+};
+
+type TabsJsonFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly label: InputMaybe<TabsJsonLabelFieldSelector>;
+  readonly panel: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
+
+type TabsJsonFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly label: InputMaybe<TabsJsonLabelFilterInput>;
+  readonly panel: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+};
+
+type TabsJsonFilterListInput = {
+  readonly elemMatch: InputMaybe<TabsJsonFilterInput>;
+};
+
+type TabsJsonGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<TabsJsonEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<TabsJsonGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<TabsJson>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type TabsJsonGroupConnection_distinctArgs = {
+  field: TabsJsonFieldSelector;
+};
+
+
+type TabsJsonGroupConnection_groupArgs = {
+  field: TabsJsonFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type TabsJsonGroupConnection_maxArgs = {
+  field: TabsJsonFieldSelector;
+};
+
+
+type TabsJsonGroupConnection_minArgs = {
+  field: TabsJsonFieldSelector;
+};
+
+
+type TabsJsonGroupConnection_sumArgs = {
+  field: TabsJsonFieldSelector;
+};
+
+type TabsJsonLabel = {
+  readonly body: Maybe<Scalars['String']>;
+  readonly heading: Maybe<Scalars['String']>;
+};
+
+type TabsJsonLabelFieldSelector = {
+  readonly body: InputMaybe<FieldSelectorEnum>;
+  readonly heading: InputMaybe<FieldSelectorEnum>;
+};
+
+type TabsJsonLabelFilterInput = {
+  readonly body: InputMaybe<StringQueryOperatorInput>;
+  readonly heading: InputMaybe<StringQueryOperatorInput>;
+};
+
+type TabsJsonLabelSortInput = {
+  readonly body: InputMaybe<SortOrderEnum>;
+  readonly heading: InputMaybe<SortOrderEnum>;
+};
+
+type TabsJsonSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly label: InputMaybe<TabsJsonLabelSortInput>;
+  readonly panel: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+};
+
 type TransformOptions = {
   readonly cropFocus: InputMaybe<ImageCropFocus>;
   readonly duotone: InputMaybe<DuotoneGradient>;
@@ -2541,7 +2724,7 @@ type HomepageQuery = { readonly heroImage: { readonly childImageSharp: { readonl
 type NavItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type NavItemsQuery = { readonly allNavItemsJson: { readonly nodes: ReadonlyArray<{ readonly text: string | null, readonly to: string | null }> } };
+type NavItemsQuery = { readonly allNavItemsJson: { readonly nodes: ReadonlyArray<{ readonly text: string | null, readonly to: string | null, readonly type: string | null }> } };
 
 type SEOFallbackQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2549,6 +2732,11 @@ type SEOFallbackQueryVariables = Exact<{ [key: string]: never; }>;
 type SEOFallbackQuery = { readonly site: { readonly siteMetadata: { readonly siteUrl: string | null, readonly title: string | null, readonly description: string | null } | null } | null };
 
 type SplitImageFragment = { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData };
+
+type TabsFallbackQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type TabsFallbackQuery = { readonly allTabsJson: { readonly nodes: ReadonlyArray<{ readonly panel: string | null, readonly label: { readonly body: string | null, readonly heading: string | null } | null }> } };
 
 
 }

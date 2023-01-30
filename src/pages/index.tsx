@@ -1,10 +1,10 @@
 import * as React from "react";
-import { graphql, PageProps } from "gatsby";
+import { graphql, PageProps, HeadProps } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Hero from "../components/Hero";
 import Split from "../components/Split";
-import type { HeadProps } from "gatsby";
+import Tabs from "../components/Tabs";
 
 export default function IndexPage(props: PageProps) {
   const { data } = props;
@@ -15,11 +15,12 @@ export default function IndexPage(props: PageProps) {
       <Hero
         image={heroImage.childImageSharp}
         h1="Tailwind components"
-        h2="CSS only website starter"
-        p="A set of reusable components made purely with Tailwind CSS, and designed to be used within the Gatsby framework."
+        h2="CSS-first website starter"
+        p="A set of reusable components made mostly with Tailwind CSS, a bit of HeadlessUI, and designed to be used within the Gatsby framework."
       />
       <Split image={splitImages.nodes[0].childImageSharp} />
       <Split image={splitImages.nodes[1].childImageSharp} />
+      <Tabs />
     </Layout>
   );
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Button from "./Button";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+
 // type NavItem = {
 //   to: string;
 //   text: string;
@@ -16,6 +18,7 @@ export default function Nav({ title }: NavProps) {
         nodes {
           text
           to
+          type
         }
       }
     }
@@ -41,17 +44,22 @@ export default function Nav({ title }: NavProps) {
 
         <ul className="absolute top-[128%] right-[-26%] hidden bg-white peer-checked:block lg:relative lg:inset-0 lg:flex">
           {items &&
-            items.map((item) => (
-              <li
-                key={item.text}
-                className="relative block whitespace-nowrap p-4 lg:px-2"
-              >
-                <Link to={item.to}>{item.text}</Link>
-              </li>
-            ))}
-          <li className="relative block whitespace-nowrap p-4 lg:px-2">
-            <Button to="" text="CTA"></Button>
-          </li>
+            items.map((item) => {
+              return (
+                <li
+                  key={item.text}
+                  className="relative block whitespace-nowrap p-4 lg:px-2"
+                >
+                  {item.type == "button" && (
+                    <Button to={item.to}>{item.text}</Button>
+                  )}
+                  {item.type == "link" && <Link to={item.to}>{item.text}</Link>}
+                  {item.type == "search" && (
+                    <MagnifyingGlassIcon className="h-6 w-6" />
+                  )}
+                </li>
+              );
+            })}
         </ul>
       </div>
     </nav>

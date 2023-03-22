@@ -16,7 +16,7 @@ export default function IndexPage(props: PageProps) {
         image={heroImage.childImageSharp}
         h1="Tailwind components"
         h2="CSS-first website starter"
-        p="A set of reusable components made mostly with Tailwind CSS, a bit of HeadlessUI, and designed to be used within the Gatsby framework."
+        paragraph="A set of reusable components made mostly with Tailwind CSS, a bit of HeadlessUI, and designed to be used within the Gatsby framework."
       />
       <Split image={splitImages.nodes[0].childImageSharp} />
       <Split image={splitImages.nodes[1].childImageSharp} />

@@ -7,10 +7,10 @@ type HeroProps = {
   h1: string;
   h2: string;
   image: Queries.HeroImageFragment;
-  p: string;
+  paragraph: string;
 };
 
-export default function Hero({ h1, h2, p, image }: HeroProps) {
+export default function Hero({ h1, h2, paragraph, image }: HeroProps) {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute -z-10 h-full w-full bg-black opacity-60 backdrop-blur-3xl"></div>
@@ -28,7 +28,7 @@ export default function Hero({ h1, h2, p, image }: HeroProps) {
         <h1 className="mb-2 text-4xl font-extrabold tracking-tight lg:text-6xl">
           {h1}
         </h1>
-        <p className="mb-10 max-w-lg text-lg">{p}</p>
+        <p className="mb-10 max-w-lg text-lg">{paragraph}</p>
         <Button to="/" text="Button" />
       </div>
     </section>

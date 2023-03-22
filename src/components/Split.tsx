@@ -4,12 +4,12 @@ import { GatsbyImage } from "gatsby-plugin-image";
 type SplitProps = {
   h3?: string;
   image: Queries.SplitImageFragment;
-  largeP?: string;
+  paragraph?: string;
 };
 export default function Split({
   image,
   h3 = "H3 for component",
-  largeP = "Longish <p> that is more verbose than the lil eyebrow h3 above",
+  paragraph = "Longish <p> that is more verbose than the lil eyebrow h3 above",
 }: SplitProps) {
   return (
     <section className="group py-6 lg:py-12">
@@ -22,7 +22,7 @@ export default function Split({
         <div className="text-wrapper p-4 lg:max-w-[50%]">
           <h3 className="text-xl font-semibold leading-7">{h3}</h3>
           <p className="mt-4 text-4xl font-extrabold tracking-tight">
-            {largeP}
+            {paragraph}
           </p>
           <p className="mt-4 max-w-xl text-base">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur

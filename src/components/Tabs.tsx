@@ -23,7 +23,10 @@ export default function Tabs() {
           <Tab.List className="mt-6 flex w-full justify-between border-t border-slate-200 sm:gap-0 lg:gap-x-5 ">
             {data.map(({ label }) => {
               return (
-                <Tab className="w-full border-t border-transparent py-7  px-3 text-left ui-selected:border-indigo-500 [&:not(:focus-visible)]:focus:outline-none">
+                <Tab
+                  className="w-full border-t border-transparent py-7  px-3 text-left ui-selected:border-indigo-500 [&:not(:focus-visible)]:focus:outline-none"
+                  key={label.heading}
+                >
                   <h4 className="font-bold">{label.heading}</h4>
                   <p>{label.body}</p>
                 </Tab>
@@ -32,7 +35,11 @@ export default function Tabs() {
           </Tab.List>
           <Tab.Panels>
             {data.map(({ panel }) => {
-              return <Tab.Panel className="p-3">{panel}</Tab.Panel>;
+              return (
+                <Tab.Panel className="p-3" key={panel}>
+                  {panel}
+                </Tab.Panel>
+              );
             })}
           </Tab.Panels>
         </Tab.Group>

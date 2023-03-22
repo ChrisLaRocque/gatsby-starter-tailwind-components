@@ -14,7 +14,11 @@ export default function Split({
   return (
     <section className="group py-6 lg:py-12">
       <div className="mx-auto block group-odd:flex-row-reverse group-even:flex-row lg:flex lg:min-w-[50%] lg:max-w-7xl">
-        <GatsbyImage image={image.gatsbyImageData} alt="" className="block" />
+        <GatsbyImage
+          image={image.gatsbyImageData}
+          alt=""
+          className="block w-full"
+        />
         <div className="text-wrapper p-4 lg:max-w-[50%]">
           <h3 className="text-xl font-semibold leading-7">{h3}</h3>
           <p className="mt-4 text-4xl font-extrabold tracking-tight">
